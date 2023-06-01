@@ -6,18 +6,18 @@
 		</div>
 		<div class="eltab">
 			<el-table :data="uslist.slice((currentPage3-1)*pageSize3,currentPage3*pageSize3)" style="width: 100%">
-				<el-table-column fixed prop="date" label="Date" width="150" sortable />
-				<el-table-column prop="name" label="Name" width="150" />
-				<el-table-column prop="phone" label="phone" width="200" />
-				<el-table-column prop="shopName" label="shopName" width="150" />
-				<el-table-column prop="shopnumber" label="shopNumber" width="150" />
-				<el-table-column prop="price" label="Price" width="150" />
-				<el-table-column prop="TotalPrice" label="TotalPrice" width="150" />
-				<el-table-column prop="state" label="state" width="150" />
-				<el-table-column prop="shipments" label="shipments" width="150" />
-				<el-table-column prop="address" label="Address" width="400" />
-				<el-table-column prop="zip" label="Zip" width="120" />
-				<el-table-column fixed="right" label="Operations" width="120">
+				<el-table-column fixed prop="date" label="日期" fit sortable width="120" />
+				<el-table-column prop="name" label="用户"  fit show-overflow-tooltip="true" />
+				<el-table-column prop="phone" label="电话"  fit show-overflow-tooltip="true" />
+				<el-table-column prop="shopName" label="商品"  fit show-overflow-tooltip="true" />
+				<el-table-column prop="shopnumber" label="数量"  fit show-overflow-tooltip="true" />
+				<el-table-column prop="price" label="单价"  fit show-overflow-tooltip="true" />
+				<el-table-column prop="TotalPrice" label="总价"  fit  show-overflow-tooltip="true"/>
+				<el-table-column prop="state" label="状态" fit show-overflow-tooltip="true"/>
+				<el-table-column prop="shipments" label="发货"  fit show-overflow-tooltip="true" />
+				<el-table-column prop="address" label="地址" fit show-overflow-tooltip="true" />
+				<el-table-column prop="zip" label="邮编"  fit show-overflow-tooltip="true" />
+				<el-table-column fixed="right" label="操作"  width="100 ">
 					<template #default="scope">
 						<el-button link type="primary" size="small" @click.prevent="deleteRow(scope.$index)">
 							删除
@@ -31,34 +31,37 @@
 			<!-- 修改弹框 -->
 			<el-dialog v-model="dialogFormVisible" title="修改">
 				<el-form :model="form">
-					<el-form-item label="Date" :label-width="100">
+					<el-form-item label="日期" :label-width="100">
 						<el-input v-model="form.value.date" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="Name" :label-width="100">
+					<el-form-item label="用户" :label-width="100">
 						<el-input v-model="form.value.name" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="phone" :label-width="100">
+					<el-form-item label="电话" :label-width="100">
 						<el-input v-model="form.value.phone" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="shopName" :label-width="100">
+					<el-form-item label="商品" :label-width="100">
 						<el-input v-model="form.value.shopName" autocomplete="off" />
 				 </el-form-item>
-					<el-form-item label="shopNumber" :label-width="100">
+					<el-form-item label="数量" :label-width="100">
 				  <el-input v-model="form.value.shopnumber" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="Price" :label-width="100">
+					<el-form-item label="单价" :label-width="100">
 						<el-input v-model="form.value.price" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="state" :label-width="100">
+					<el-form-item label="总价" :label-width="100">
+						<el-input v-model="form.value.TotalPrice" autocomplete="off" />
+					</el-form-item>
+					<el-form-item label="状态" :label-width="100">
 						<el-input v-model="form.value.state" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="shipments" :label-width="100">
+					<el-form-item label="发货" :label-width="100">
 						<el-input v-model="form.value.shipments" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="Address" :label-width="100">
+					<el-form-item label="地址" :label-width="100">
 						<el-input v-model="form.value.address" autocomplete="off" />
 					</el-form-item>
-					<el-form-item label="Zip" :label-width="100">
+					<el-form-item label="邮编" :label-width="100">
 						<el-input v-model="form.value.zip" autocomplete="off" />
 					</el-form-item>
 
@@ -340,6 +343,7 @@ const inpu = ref('')
 	const getList = () => {
 		uslist.value = tableData.value
 	}
+	
 </script>
 
 <style type="text/css">
@@ -349,17 +353,21 @@ const inpu = ref('')
 	}
 
 	.order {
-		width: 60%;
-		height: 600px;
+		width: 100%;
+		height:auto;
 		margin: 10% auto;
-		background: url(../assets/bgc_1.jpg);
-		background-size: 100%;
-		background-repeat: no-repeat;
+		border: #C45656 5px solid;
+		/* background: url(../assets/bgc_1.jpg); */
+	/* 	background-size: 100%;
+		background-repeat: no-repeat; */
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 
 	.serc {
-		width: 653px;
+		width: 60%;
 		height: auto;
 		margin: 20px 0px 80px 0px;
 	}
@@ -382,18 +390,22 @@ const inpu = ref('')
 	}
 
 	.demo-pagination-block+.demo-pagination-block {
-		margin-top: 10px;
+		margin-bottom: 0;
+		/* border: #529B2E solid 2px !important; */
 	}
 
 	.demo-pagination-block {
-		position: absolute;
-		bottom: 0;
+		/* position: absolute; */
+		/* bottom: 10px; */
+		margin:15px auto 0;
 
-		margin: auto 30%;
+		/* margin: 10%; */
 	}
 
 	.eltab {
 		border: #529B2E 2px solid;
+		/* height:  !important; */
+	
 	}
 
 	.el-input {
