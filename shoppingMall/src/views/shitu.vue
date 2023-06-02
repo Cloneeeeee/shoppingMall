@@ -5,7 +5,7 @@
 			<div id="d1" ref="d1">
 			</div>
 		</div>
-		<div class="box2">
+		<!-- <div class="box2">
 			<li>门店销售排行榜</li>
 			<li><span>1</span>白鹭一号店</li>
 			<li><span>2</span>白鹭二号店</li>
@@ -15,7 +15,7 @@
 			<li><span>6</span>白鹭六号店</li>
 			<li><span>7</span>白鹭七号店</li>
 		
-		</div>
+		</div> -->
 	</div>
 </template>
 
@@ -63,13 +63,13 @@
 	li{list-style: none;}
 	.box{
 		width: 100%;
-		height: 347px;
+		height: auto;
 		overflow: hidden;
 		margin: 10px;
 		background-color: #fff;
 	}
 	.box1{
-		width:65%;
+		width:100%;
 		height: 100%;
 		float:left;
 	}
@@ -80,8 +80,8 @@
 		line-height:40px ;
 	}
 	#d1{
-		width:661px;
-		height: 254px;
+		width:90%;
+		height: 400px;
 		padding:0 0 32px 32px;
 	}
 	.box2{

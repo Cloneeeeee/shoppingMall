@@ -21,7 +21,7 @@ const router = createRouter({
 				children:[
 					{
 						path:'/shitu',
-						name:'shitu',
+						name:'数据视图',
 						component:()=>import('../views/shitu.vue')
 					},
 					{

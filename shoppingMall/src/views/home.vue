@@ -277,6 +277,7 @@ function tiaozhuan(data){
 	width: 97%;
 	height: 94%;
 	overflow: auto;
+	background: #fff;
 }
 .exit{
 	width: 15px;

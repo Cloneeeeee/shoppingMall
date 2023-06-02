@@ -261,11 +261,12 @@
   				<li>本年</li>
   				<input type="text" value="开始时间 ~ 结束时间">
   			</div>
-  			<div class="p1">
-  				<RouterView></RouterView>
-  			</div>
+  			
   
   		</div>
+		<div class="p1">
+			<RouterView></RouterView>
+		</div>
   	</div>
   	<div class="footer">
   		<div class="footer-nav">
@@ -309,11 +310,11 @@
   
 </template>
 <style scoped>
-	* {
+	*{
 			margin: 0;
 			padding: 0;
 	
-		}
+	}
 	
 		li {
 			list-style: none;
@@ -321,8 +322,10 @@
 	
 		.box {
 			width: 100%;
-			height: auto;
+			height: 100%;
 			background-color: rgba(240, 242, 245);
+			display: flex;
+			flex-direction: column;
 		}
 	
 		.nav {
