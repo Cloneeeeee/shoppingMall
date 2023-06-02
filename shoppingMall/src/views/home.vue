@@ -46,11 +46,11 @@
 					<div class="open" @click="click" :class="{close:isClose}">
 						<DArrowRight />
 					</div>
-					<!-- <div class="mianbao">
+					<div class="mianbao">
 						<el-breadcrumb>
-							<el-breadcrumb-item v-for="(item,index) in arr" :key="index">{{item}}</el-breadcrumb-item>
+							<el-breadcrumb-item :to="item.path" v-for="(item,index) in arr" :key="index" @click="tiaozhuan(item.path)">{{item.name}}</el-breadcrumb-item>
 						</el-breadcrumb>
-					</div> -->
+					</div>
 				</div>
 				<div class="headright">
 					<div class="admin">
@@ -95,7 +95,7 @@ let active = ref('/home')
 let isfull = ref(false)
 
 
-var arr = reactive(['首页'])
+var arr = reactive([])
 
 function click(){
 	isCollapse.value = !isCollapse.value
@@ -104,11 +104,6 @@ function click(){
 const itemClick = (index, indexPath) => {
   // console.log(index, indexPath)
   // console.log(arry)
-  arr.length=0
-  let obj = reactive({})
-  indexPath.forEach(item=>{
-	  arr.push(item)
-  })
   // console.log(route.matched.slice(-1)[0])
 }
 onMounted(()=>{
@@ -129,6 +124,34 @@ const SetFullScreen = () => {
 function exits(){
 	router.replace('/')
 }
+const { currentRoute } = useRouter();
+const breadcrumbItems = ref([]);
+watch(
+	() => currentRoute.value,
+	(route) => {
+		arr.length=0
+		const list = route.matched.filter((item) => item.name !== "index");
+		// console.log(list)
+		breadcrumbItems.value = list.map((item) => {
+			return item.meta.title;
+		});
+		// console.log(list)
+		list.forEach(item=>{
+			let obj = reactive({})
+			obj.name = item.name
+			obj.path = item.path
+			arr.push(obj)
+		})
+		console.log(arr)
+	}, {
+		immediate: true
+	}
+);
+function tiaozhuan(data){
+	active.value = data
+	console.log(active.value)
+}
+
 </script>
 
 <style scoped>

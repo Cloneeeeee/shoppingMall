@@ -11,7 +11,7 @@ const router = createRouter({
       component: () => import('../views/login.vue'),
     },{
 		path:'/home',
-		name:'home',
+		name:'首页',
 		component:() => import('../views/home.vue'),
 		children:[
 			{
