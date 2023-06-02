@@ -15,9 +15,21 @@ const router = createRouter({
 		component:() => import('../views/home.vue'),
 		children:[
 			{
-			  path: '',
-			  name: '首页',
-			  component: () => import('../views/test.vue')
+				path: '',
+				name: '首页',
+				component:() =>import('../views/HomeView.vue'),
+				children:[
+					{
+						path:'/shitu',
+						name:'shitu',
+						component:()=>import('../views/shitu.vue')
+					},
+					{
+						path:'/shitu1',
+						name:'shitu1',
+						component:()=>import('../views/shitu1.vue')
+					}
+				]
 			},{
 				path:'yy1',
 				name:'应用1',
