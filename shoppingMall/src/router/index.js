@@ -32,8 +32,8 @@ const router = createRouter({
 				]
 			},{
 				path:'yy1',
-				name:'应用1',
-				component:() => import('../views/test2.vue')
+				name:'商品数据',
+				component:() => import('../components/order.vue')
 			},{
 				path:'yy2',
 				name:'应用2',

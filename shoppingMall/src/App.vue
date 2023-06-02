@@ -22,6 +22,7 @@
 	// }
 	// let checked = ref(true)
 	// let that = getCurrentInstance().proxy
+import order from './components/order.vue';
 
 	// let days = 3
 	// let expires = new Date(new Date() * 1 + days * 24 * 60 * 60 * 1000);

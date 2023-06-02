@@ -17,13 +17,13 @@
 			    <el-icon><location /></el-icon>
 			    <span>首页</span>
 			  </el-menu-item>
-			  <el-sub-menu index="应用">
+			  <el-sub-menu index="商品">
 			    <template #title>
 					<el-icon><icon-menu /></el-icon>
-					<span>应用</span>
+					<span>商品</span>
 				</template>
 				<el-menu-item-group>
-				  <el-menu-item index="/home/yy1">应用一</el-menu-item>
+				  <el-menu-item index="/home/yy1">商品数据</el-menu-item>
 				  <el-menu-item index="/home/yy2">应用二</el-menu-item>
 				  <el-menu-item index="/home/yy3">应用三</el-menu-item>
 				</el-menu-item-group>
